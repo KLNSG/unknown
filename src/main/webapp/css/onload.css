@@ -1,0 +1,65 @@
+body{
+    overflow: hidden;
+    overflow-x: hidden;
+    padding: 0;
+    margin: 0;
+    background-color: black;
+}
+.repect{
+    position: absolute;
+    width: 100%;
+    height: 800px;
+    background-image: url("../image/login.jpg");
+    background-size: cover;
+    opacity: 0;
+
+}
+.line{
+    position: absolute;
+    background-color: white;
+    height: 2px
+}
+#titleSentence{
+    overflow : hidden;
+    white-space :nowrap;
+    text-align:justify;
+    margin-left: 160px;
+    margin-top: 260px;
+    height: 250px;
+    width: 700px;
+    font-size: 45px;
+    font-family: 楷体;
+    font-weight: bold;
+    color: floralwhite;
+}
+.mat{
+    position: absolute;
+    left: 58%;
+    top: 20px;
+    height: 120px;
+    width: 700px;
+}
+.homeUl{
+    list-style-type:none;
+    text-align:center;
+    font-size:28px;
+}
+.home{
+    cursor: pointer;
+    float:left;
+    width:115px;
+    padding:5px;
+    color: white;
+    opacity: 0;
+    text-shadow:6px 6px 6px wheat;
+}
+.deng{
+    border-radius: 25px;
+    height: 500px;
+    margin: 0px auto;
+    background-color: black;
+    opacity: 0;
+    width: 480px;
+    margin-left: 55%;
+    margin-top: -370px;
+}
