@@ -30,8 +30,8 @@ $(function () {
                                         "opacity": "0.6"
                                     },"slow",function () {
                                         var $p = $("p");
-                                        text($p.eq(0),"淫慢则不能励精",function() {
-                                            text($p.eq(1),"险燥则不能治性",function() {
+                                        text($p.eq(0),"世事漫心随流水",function() {
+                                            text($p.eq(1),"江南烟雨报春寒",function() {
                                                 loginpage()
                                             })
                                         })
