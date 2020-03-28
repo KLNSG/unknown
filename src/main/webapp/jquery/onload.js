@@ -1,7 +1,5 @@
 $(function () {
 
-    onload()
-
     function onload() {
         setTimeout(function () {
             $("#bottom").animate({

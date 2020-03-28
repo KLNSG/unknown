@@ -1,7 +1,9 @@
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
 <head>
     <script src="jquery/jquery-1.12.4.js"></script>
     <script src="jquery/onload.js"></script>
+    <script src="jquery/trigger.js"></script>
     <link href="css/onload.css" rel="stylesheet" type="text/css" media="all"/>
     <meta charset="UTF-8">
     <title>Title</title>
@@ -27,5 +29,11 @@
 
     </div>
 </div>
+<script>
+    <%String mess=request.getParameter("message");%>
+    <%if (mess!=null && !"".equals(mess)){%>
+    alert("<%=mess%>")
+    <%}%>
+</script>
 </body>
 </html>
