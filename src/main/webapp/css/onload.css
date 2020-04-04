@@ -57,9 +57,44 @@ body{
     border-radius: 25px;
     height: 500px;
     margin: 0px auto;
-    background-color: black;
-    opacity: 0;
+    display: none;
+    background-color: rgba(0,0,0,0.4);
     width: 480px;
     margin-left: 55%;
     margin-top: -370px;
+    text-align:center;
+}
+
+#OT tr,td{
+    height: 116px;
+    width: 175px;
+}
+.inputBox{
+    display: none;
+    text-align: center;
+    margin-left: 20px;
+    height: 35px;
+    width: 0px;
+    font-size: 30px;
+}
+#OT{
+    margin-top: 75px;
+    text-align: center;
+    display: inline-block;
+    width: 350px;
+    color: navajowhite;
+    height: 350px;
+}
+.none{
+    display: none;
+}
+.btn{
+    display: none;
+    border-radius: 15px;
+    background-color: transparent;
+    font-family: 华文楷体;
+    height: 60px;
+    width: 120px;
+    font-size: 30px;
+    color: navajowhite;
 }

@@ -1,5 +1,7 @@
 $(function () {
 
+    onload()
+
     function onload() {
         setTimeout(function () {
             $("#bottom").animate({
@@ -32,7 +34,7 @@ $(function () {
                                             text($p.eq(1),"江南烟雨报春寒",function() {
                                                 loginpage()
                                             })
-                                        })
+                                        },1000)
                                         navigationBar()
                                     })
                                     setTimeout(function () {
@@ -50,8 +52,8 @@ $(function () {
                 },"slow")
             })
         },1000)
-    }
-    function text($text,str,callback) {
+    }  //页面初始化
+    function text($text,str,callback,callbackspeed) {
         var index = 0;
         var timer = setInterval(function() {
                 var current = str.substr(index, 1);
@@ -68,7 +70,7 @@ $(function () {
             100);
         setTimeout(function () {
             callback&&callback()
-        },1000)
+        },callbackspeed)
     }
     function navigationBar() {
         var index = 0;
@@ -85,10 +87,81 @@ $(function () {
         },500);
     }
     function loginpage() {
-        $("#loginpage").animate({
-            "opacity":"0.4",
-            "marginTop":"-320px"
-        },"slow")
+        $("#loginpage").fadeIn(1000,function() {
+            var $h1 = $("h1");
+            text($h1.eq(0),"用户名:",function() {
+                $("#name").css("display","block")
+                $("#name").animate({
+                    "width": "175px"
+                },"fast",function() {
+                    text($h1.eq(1),"密码:",function() {
+                        $("#pass").css("display","block")
+                        $("#pass").animate({
+                            "width": "175px"
+                        },"fast",function() {
+                            $(".btn").fadeIn(1000)
+                        })
+                    },500)
+                })
+            },500)
+        })
+    }
+    function displayNone_enrol(){
+        $("#photo").stop().animate({
+            "width": "0px"
+        },"fast",function() {
+            $("#photo").css("display","none")
+            $("#repass").stop().animate({
+                "width": "0px"
+            },"fast",function() {
+                $("#repass").css("display","none")
+                $("#OT tr,td").stop().animate({
+                    "height": "116px"
+                },"normal",function() {
+                    $("#denglu").attr("value","登陆")
+                    $(".none").css("display" , "none")
+                    $("#OT").stop().animate({
+                        "marginTop":"75px"
+                    },"normal")
+                })
+            })
+        })
     }
 
+    $("#denglu").click(function(){
+        if ($(this).val()=="返回"){
+            displayNone_enrol()
+        }
+    })
+
+    $("#zhuce").click(function () {
+        $("#OT").stop().animate({
+            "marginTop":"50px"
+        },"normal",function() {
+            $(".none").css("display" , "table-row")
+            $("#denglu").attr("value","返回")
+            $("#OT tr,td").stop().animate({
+                "height": "58px"
+            },"normal",function() {
+                $("#repass").css("display","block")
+                $("#repass").stop().animate({
+                    "width": "175px"
+                },"fast",function() {
+                    $("#photo").css("display","block")
+                    $("#photo").stop().animate({
+                        "width": "175px"
+                    },"fast")
+                })
+            })
+        })
+    })
+
+    var color
+    $(".btn").hover(function(){
+        color= $(this).css("color")
+        $(this).css("background-color" , color).css("color","black")
+    },function() {
+        $(this).css({"border-color":color,"background-color":"transparent","color":color})
+        $(this).css("background-color","transparent").css("color",color)
+    })
 })
