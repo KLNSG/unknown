@@ -9,7 +9,19 @@ import user.pojo.User;
  **/
 public interface UserService {
 
+    /**
+     * 增加用户，用户名不能相同，密码加密
+     * @param user
+     * @return base.Message
+     * @author Lvxin
+     **/
     Message save(User user);
 
+    /**
+     * 登陆逻辑，根据用户名查找加密后的密码与前端密码进行匹配
+     * @param user
+     * @return base.Message
+     * @author Lvxin
+     **/
     Message Login(User user);
 }
