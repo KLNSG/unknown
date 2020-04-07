@@ -118,7 +118,7 @@ $(function () {
                 $("#OT tr,td").stop().animate({
                     "height": "116px"
                 },"normal",function() {
-                    $("#denglu").attr("value","登陆")
+                    $("#denglu").attr("value","登录")
                     $(".none").css("display" , "none")
                     $("#OT").stop().animate({
                         "marginTop":"75px"
