@@ -26,10 +26,12 @@
         </div>
     </div>
     <div class="deng" id="loginpage">
-        <table id="OT">
+        <form id="uploadForm" method="post" enctype="multipart/form-data">
+           <table id="OT">
             <tr>
                 <td><h1></h1></td>
                 <td><input id="name" class="inputBox" type="text"></td>
+                <td><span>*</span></td>
             </tr>
             <tr>
                 <td><h1></h1></td>
@@ -52,6 +54,7 @@
                 </td>
             </tr>
         </table>
+        </form>
     </div>
 </div>
 </body>

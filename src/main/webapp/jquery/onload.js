@@ -128,6 +128,8 @@ $(function () {
         })
     }
 
+
+
     $("#denglu").click(function(){
         if ($(this).val()=="返回"){
             displayNone_enrol()
@@ -135,25 +137,68 @@ $(function () {
     })
 
     $("#zhuce").click(function () {
-        $("#OT").stop().animate({
-            "marginTop":"50px"
-        },"normal",function() {
-            $(".none").css("display" , "table-row")
-            $("#denglu").attr("value","返回")
-            $("#OT tr,td").stop().animate({
-                "height": "58px"
-            },"normal",function() {
-                $("#repass").css("display","block")
-                $("#repass").stop().animate({
-                    "width": "175px"
-                },"fast",function() {
-                    $("#photo").css("display","block")
-                    $("#photo").stop().animate({
+        if ($(this).val()=="注册") {
+            $("#OT").stop().animate({
+                "marginTop": "50px"
+            }, "normal", function () {
+                $(".none").css("display", "table-row")
+                $("#denglu").attr("value", "返回")
+                $("#zhuce").attr("value", "保存")
+                $("#OT tr,td").stop().animate({
+                    "height": "58px"
+                }, "normal", function () {
+                    $("#repass").css("display", "block")
+                    $("#repass").stop().animate({
                         "width": "175px"
-                    },"fast")
+                    }, "fast", function () {
+                        $("#photo").css("display", "block")
+                        $("#photo").stop().animate({
+                            "width": "175px"
+                        }, "fast")
+                    });
                 })
             })
-        })
+        }
+        else if($(this).val()=="保存"){
+            ajax_addUser()
+        }
+    })
+
+    function ajax_addUser() {
+        $.ajax({
+            url: '/user?opt=add',
+            type: 'POST',
+            cache: false,
+            data: new FormData($('#uploadForm')),
+            processData: false,
+            contentType: false,
+            success: a
+        }).done(function(res) {
+        }).fail(function(res) {});
+        function a(data) {
+            alert("s")
+        }
+    }
+
+    $(document).on("blur","#name",function () {
+        if ($("#zhuce").val()=="保存") {
+            $.post({
+                url: "/user?opt=checkUserName",
+                data: {
+                    userName: $("#name").val()
+                },
+                dataType: "JSON",
+                success: a
+            })
+
+            function a(data) {
+                if (data.code == 1) {
+                    $("#OT span").text("成功")
+                } else if (data.code == 0) {
+                    $("#OT span").text("失败")
+                }
+            }
+        }
     })
 
     var color
