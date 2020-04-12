@@ -24,4 +24,6 @@ public interface UserService {
      * @author Lvxin
      **/
     Message Login(User user);
+
+    Message checkUserName(String userName);
 }
