@@ -15,7 +15,7 @@ public class Message<T> {
         return new Message(1,"成功",null);
     }
     public final static Message FAIL(){
-        return new Message(0,"失败",null);
+        return new Message(-1,"失败",null);
     }
 
     public Message() {

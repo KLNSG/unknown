@@ -25,13 +25,13 @@ public class ObjectToParmterUtil {
         Field[] fields = objclass.getDeclaredFields();
         TreeMap<Integer, Object> dataMap = new TreeMap<>();
         for (Field field : fields) {
-            Object value = null;
+            Object value;
             field.setAccessible(true);
             String fieName = field.getName();
             Method method = objclass.getMethod("get" + fieName.substring(0, 1).toUpperCase() + fieName.substring(1));
             value = method.invoke(object);
             if (value != null) {
-                int i = sql.indexOf(fieName);
+                int i = sql.indexOf(StringUtil.camelToUnderline(fieName));
                 if (i > 0) {
                     dataMap.put(i, value);
                 }

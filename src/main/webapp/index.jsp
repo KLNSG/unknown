@@ -30,20 +30,19 @@
            <table id="OT">
             <tr>
                 <td><h1></h1></td>
-                <td><input id="name" class="inputBox" type="text"></td>
-                <td><span>*</span></td>
+                <td><input name="name" id="name" class="inputBox" type="text"></td>
             </tr>
             <tr>
                 <td><h1></h1></td>
-                <td><input id="pass" class="inputBox" type="password"></td>
+                <td><input name="pass" id="pass" class="inputBox" type="password"></td>
             </tr>
             <tr class="none">
                 <td><h2>确认密码:</h2></td>
-                <td><input id="repass" class="inputBox" type="password"></td>
+                <td><input name="repass" id="repass" class="inputBox" type="password"></td>
             </tr>
             <tr class="none">
                 <td><h2>选择头像:</h2></td>
-                <td><input id="photo" style="font-size: 20px" class="inputBox" type="file"></td>
+                <td><input id="photo" name="photo" style="font-size: 20px" class="inputBox" type="file"></td>
             </tr>
             <tr>
                 <td>
