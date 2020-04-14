@@ -10,7 +10,6 @@ $(function () {
             ajax_login($("#name").val(),$("#pass").val())
         }
     })
-
     function ajax_login(username,password) {
         $.ajax({
             url: "/user?opt=login",
@@ -31,7 +30,6 @@ $(function () {
             }
         }
     }
-
     $("#zhuce").click(function () {
         if ($(this).val()=="注册") {
             $("#OT").stop().animate({
@@ -56,10 +54,11 @@ $(function () {
             })
         }
         else if($(this).val()=="保存"){
-            ajax_addUser()
+            ajax_addUser(function () {
+                alert("保存成功")
+            })
         }
     })
-
     function ajax_addUser(callback) {
         $.ajax({
             url: '/user?opt=add',
@@ -79,5 +78,4 @@ $(function () {
             }
         }
     }
-    
 })

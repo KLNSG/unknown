@@ -3,6 +3,7 @@ package util;
 import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
+import java.lang.reflect.Modifier;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.util.TreeMap;
@@ -25,6 +26,10 @@ public class ObjectToParmterUtil {
         Field[] fields = objclass.getDeclaredFields();
         TreeMap<Integer, Object> dataMap = new TreeMap<>();
         for (Field field : fields) {
+            boolean aStatic = Modifier.isStatic(field.getModifiers());
+            if (aStatic){
+                continue;
+            }
             Object value;
             field.setAccessible(true);
             String fieName = field.getName();

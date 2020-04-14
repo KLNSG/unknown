@@ -31,6 +31,7 @@
             <tr>
                 <td><h1></h1></td>
                 <td><input name="name" id="name" class="inputBox" type="text"></td>
+             <%--   <td><span>*</span></td>--%>
             </tr>
             <tr>
                 <td><h1></h1></td>

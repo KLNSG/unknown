@@ -13,7 +13,9 @@ public class UserServiceImpl implements UserService {
     UserDao userDao=new UserDaoImpl();
 
     private boolean checkUsername(String userName){
-        List<User> userList = userDao.listUserByInfo(new User(userName));
+        User user = new User();
+        user.setUserName(userName);
+        List<User> userList = userDao.listUserByInfo(user);
         if (userList==null || userList.isEmpty()){
             return true;
         }
@@ -22,7 +24,7 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public Message save(User user) {
-        boolean b = checkUsername(user.getName());
+        boolean b = checkUsername(user.getUserName());
         if (b){
             int i = userDao.addUser(user);
             if (i>0){
@@ -35,13 +37,13 @@ public class UserServiceImpl implements UserService {
     @Override
     public Message Login(User user) {
         User data=new User();
-        data.setName(user.getName());
+        data.setUserName(user.getUserName());
         List<User> users = userDao.listUserByInfo(data);
         if (users==null || users.isEmpty()){
             return new Message(-1,"没有找到该用户",null);
         }
         data= users.get(0);
-        if (user.getPassword().equals(data.getPassword())) {
+        if (user.getUserPassword().equals(data.getUserPassword())) {
             return Message.SUCCESS();
         }
         return new Message(-1,"用户名或密码错误",null);

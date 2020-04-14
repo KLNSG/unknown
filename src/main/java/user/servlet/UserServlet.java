@@ -1,5 +1,4 @@
 package user.servlet;
-import	java.awt.TrayIcon.MessageType;
 
 import base.Message;
 import com.alibaba.fastjson.JSON;
@@ -54,6 +53,9 @@ public class UserServlet extends HttpServlet {
                 case "add":
                     add(request, response);
                     break;
+                    case "checkUsername":
+                    checkUserName(request, response);
+                    break;
                 default:
             }
         }
@@ -75,6 +77,11 @@ public class UserServlet extends HttpServlet {
         printMessage(response, login);
     }
 
+    private void checkUserName(HttpServletRequest request, HttpServletResponse response){
+        String userName = request.getParameter("userName");
+        Message message = userService.checkUserName(userName);
+        printMessage(response,message);
+    }
 
     private void add(HttpServletRequest request, HttpServletResponse response) {
         Map<String, Object> data = new HashMap<>();
@@ -83,12 +90,17 @@ public class UserServlet extends HttpServlet {
         } catch (Exception e) {
             e.printStackTrace();
         }
+        User user=new User();
         String name = (String) data.get("name");
         String pass = (String) data.get("pass");
-        String photo = (String) data.get("photo");
-        //TODO 现在已经可以得到值了，重新设计下用户的数据库，要带头像状态满足需求，请用下划线 如 数据库 user_img，Java属性为 userImg
-        /**改善了ObjectToParmterUtil 动态传参的方法，数据库字段下划线，java属性 驼峰即可识别*/
-        printMessage(response,Message.FAIL());
+        String photo = (String) data.get("fileName");
+        user.setUserName(name);
+        user.setUserPassword(PassEncryptUtil.md5(pass));
+        user.setUserPoto(photo);
+        user.setCreateTime(new Date());
+        user.setIsEnable(User.IS_ENABLE);
+        Message save = userService.save(user);
+        printMessage(response,save);
     }
 
     private static Map<String, Object> getFilePath(HttpServletRequest request) throws Exception {
