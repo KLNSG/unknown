@@ -106,33 +106,6 @@ $(function () {
             },500)
         })
     }
-    function displayNone_enrol(){
-        $("#photo").stop().animate({
-            "width": "0px"
-        },"fast",function() {
-            $("#photo").css("display","none")
-            $("#repass").stop().animate({
-                "width": "0px"
-            },"fast",function() {
-                $("#repass").css("display","none")
-                $("#OT tr,td").stop().animate({
-                    "height": "116px"
-                },"normal",function() {
-                    $("#denglu").attr("value","登录")
-                    $(".none").css("display" , "none")
-                    $("#OT").stop().animate({
-                        "marginTop":"75px"
-                    },"normal")
-                })
-            })
-        })
-    }
-
-    $("#denglu").click(function(){
-        if ($(this).val()=="返回"){
-            displayNone_enrol()
-        }
-    })
 
     var color
     $(".btn").hover(function(){

@@ -73,7 +73,7 @@ public class UserServlet extends HttpServlet {
         String username = parameterMap.get("username")[0];
         String password = parameterMap.get("password")[0];
         //TODO 加密密码
-        Message login = userService.Login(new User(null, username, password));
+        Message login = userService.Login(new User(null, username, PassEncryptUtil.md5(password)));
         printMessage(response, login);
     }
 

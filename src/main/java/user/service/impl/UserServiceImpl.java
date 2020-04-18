@@ -44,7 +44,7 @@ public class UserServiceImpl implements UserService {
         }
         data= users.get(0);
         if (user.getUserPassword().equals(data.getUserPassword())) {
-            return Message.SUCCESS();
+            return new Message<User>(1,"成功",data);
         }
         return new Message(-1,"用户名或密码错误",null);
     }
