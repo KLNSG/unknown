@@ -7,4 +7,6 @@ public interface UserInfoService {
     Message infoAdd(UserInfo userInfo);
 
     Message update(UserInfo userInfo);
+
+    Message getInfo(Integer userId);
 }

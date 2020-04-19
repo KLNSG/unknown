@@ -28,7 +28,6 @@ $(function () {
                 dataType: "JSON",
                 success: a
             })
-
             function a(data) {
                 if (data.code == 1) {
                     user = data.data;
@@ -131,6 +130,34 @@ $(function () {
             }
         }
 
+        //点击头像出css
+        $("#userPage").click(function () {
+           $.ajax({
+               url:"/info?opt=getUserInfo",
+               type:"POST",
+               data:{
+                   userId:user.userId
+               },
+               dataType:"JSON",
+               success:a
+           })
+            function a(data) {
+               $(".user_info").css("display","inline")
+               if (data.code==1){
+                   $("#hold").attr("value","编辑")
+                   if (data.data.infoGender==1){
+                       $("input[name=sex]").eq(0).attr("checked","checked")
+                   }else {
+                       $("input[name=sex]").eq(1).attr("checked","checked")
+                   }
+                   $("#phone").attr("placeholder",data.data.infoPhone)
+                   $("#email").attr("placeholder",data.data.infoEmail)
+                   $("#commend").attr("placeholder",data.data.infoComment)
+               }else if(data.code=-1){
+                   $("#hold").attr("value","保存")
+               }
+            }
+        });
         //用户资料注册
         $("#hold").click(function () {
             var commend = $("[id=commend]").val();
@@ -141,12 +168,11 @@ $(function () {
             }
             if ($(this).val() == "保存") {
                 ajax_InfoUser();
-            } else {
+            } else if ($(this).val() == "编辑"){
                 ajax_InfoUpdate();
             }
         });
-
-    function ajax_InfoUser() {
+        function ajax_InfoUser() {
         $.ajax({
             url: "/info?opt=add",
             type: 'POST',
@@ -171,11 +197,28 @@ $(function () {
             }
         }
     }
-
-    function ajax_InfoUpdate() {
+        //修改代码
+        function ajax_InfoUpdate() {
         $.ajax({
-            url: "/info?opt=",
+            url: "/info?opt=update",
+            data:{
+                infoGender: $("input[name=sex]:checked").val(),
+                infoPhone: $("#phone").val(),
+                infoEmail: $("#email").val(),
+                infoComment: $("#commend").val(),
+                userId:user.userId,
+                 },
+            dataType:"JSON",
+            type: 'POST',
+            success:c
         })
+        function c(data) {
+            if (data.code==1){
+                alert("修改成功")
+            }else {
+                alert("修改失败")
+            }
+        }
     }
 
 });

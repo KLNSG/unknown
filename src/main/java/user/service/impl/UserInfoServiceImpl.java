@@ -18,4 +18,13 @@ public class UserInfoServiceImpl implements UserInfoService {
     public Message update(UserInfo userInfo) {
         return userInfoDao.update(userInfo)>0?Message.SUCCESS():Message.FAIL();
     }
+
+    @Override
+    public Message getInfo(Integer userId) {
+        UserInfo info = userInfoDao.getUserInfoByUserId(userId);
+        if (info!=null){
+            return new Message<UserInfo>(1,"成功",info);
+        }
+        return Message.FAIL();
+    }
 }

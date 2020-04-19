@@ -17,8 +17,7 @@ import java.io.PrintWriter;
 
 @WebServlet(name = "UserInfoServlet",urlPatterns = "/info")
 public class UserInfoServlet extends HttpServlet {
-    UserInfoService service=new UserInfoServiceImpl();
-
+    UserInfoService infoService=new UserInfoServiceImpl();
     private void printMessage(HttpServletResponse response, Message message) {
         PrintWriter writer = null;
         try {
@@ -48,11 +47,18 @@ public class UserInfoServlet extends HttpServlet {
                 case "update":
                     update(request,response);
                     break;
+                case "getUserInfo":
+                    getUserInfo(request,response);
                 default:
             }
         }
     }
 
+    private void getUserInfo(HttpServletRequest request, HttpServletResponse response){
+        String userId = request.getParameter("userId");
+        Message<UserInfo> info = infoService.getInfo(Integer.valueOf(userId));
+        printMessage(response,info);
+    }
     private void add(HttpServletRequest request, HttpServletResponse response) throws IOException {
         UserInfo userInfo=new UserInfo();
         userInfo.setInfoGender(Integer.valueOf(request.getParameter("infoGender")));
@@ -60,7 +66,7 @@ public class UserInfoServlet extends HttpServlet {
         userInfo.setInfoEmail(request.getParameter("infoEmail"));
         userInfo.setInfoComment(request.getParameter("infoComment"));
         userInfo.setUserId(Integer.valueOf(request.getParameter("userId")));
-        Message message = service.infoAdd(userInfo);
+        Message message = infoService.infoAdd(userInfo);
         printMessage(response,message);
     }
     private void update(HttpServletRequest request, HttpServletResponse response){
@@ -70,7 +76,7 @@ public class UserInfoServlet extends HttpServlet {
         userInfo.setInfoEmail(request.getParameter("infoEmail"));
         userInfo.setInfoComment(request.getParameter("infoComment"));
         userInfo.setUserId(Integer.valueOf(request.getParameter("userId")));
-        Message message = service.update(userInfo);
+        Message message = infoService.update(userInfo);
         printMessage(response,message);
     }
     @Override

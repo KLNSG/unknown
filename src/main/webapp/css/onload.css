@@ -112,6 +112,7 @@ body{
 }
 
 .user_info {
+    display: none;
     left: 45%;
     top: 200px;
     height: 400px;

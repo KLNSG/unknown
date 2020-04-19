@@ -74,11 +74,11 @@
                 </tr>
                 <tr>
                     <td>手机号:</td>
-                    <td><input type="text" id="phone"/></td>
+                    <td><input type="text"  id="phone"/></td>
                 </tr>
                 <tr>
                     <td>邮箱:</td>
-                    <td><input type="text" id="email"></td>
+                    <td><input  type="text" id="email"></td>
                 </tr>
                 <tr>
                     <td>个人简介:</td>
