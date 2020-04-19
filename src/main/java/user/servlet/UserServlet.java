@@ -72,8 +72,11 @@ public class UserServlet extends HttpServlet {
         Map<String, String[]> parameterMap = request.getParameterMap();
         String username = parameterMap.get("username")[0];
         String password = parameterMap.get("password")[0];
-        //TODO 加密密码
-        Message login = userService.Login(new User(null, username, PassEncryptUtil.md5(password)));
+        Message<User> login = userService.Login(new User(null, username, PassEncryptUtil.md5(password)));
+        User user = login.getData();
+        /**拿到用户图片在程序中的完整地址*/
+        /*request.getSession().getServletContext().getRealPath("Div");*/
+        user.setUserPoto("Div\\"+user.getUserPoto());
         printMessage(response, login);
     }
 

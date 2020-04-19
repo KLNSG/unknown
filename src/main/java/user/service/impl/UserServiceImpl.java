@@ -40,13 +40,16 @@ public class UserServiceImpl implements UserService {
         data.setUserName(user.getUserName());
         List<User> users = userDao.listUserByInfo(data);
         if (users==null || users.isEmpty()){
-            return new Message(-1,"没有找到该用户",null);
+            return new Message(-1,"没有找到该用户");
         }
         data= users.get(0);
+        if (User.IS_DISABLE.equals(data.getIsEnable())){
+            return new Message(-1,"该用户已被禁用");
+        }
         if (user.getUserPassword().equals(data.getUserPassword())) {
             return new Message<User>(1,"成功",data);
         }
-        return new Message(-1,"用户名或密码错误",null);
+        return new Message(-1,"用户名或密码错误");
     }
 
     @Override

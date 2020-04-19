@@ -31,7 +31,6 @@
             <tr>
                 <td><h1></h1></td>
                 <td><input name="name" id="name" class="inputBox" type="text"></td>
-             <%--   <td><span>*</span></td>--%>
             </tr>
             <tr>
                 <td><h1></h1></td>
@@ -55,13 +54,45 @@
             </tr>
         </table>
         </form>
+        <div id="userPage">
+        <img src="" class="img" alt="用户头像"/>
+            <span></span>
+        </div>
+    </div>
+    <div class="user_info ">
+        <form>
+            <table id="info">
+                <tr>
+                    <td colspan="3"><h2>用户资料</h2></td>
+                </tr>
+                <tr>
+                    <td>性别:</td>
+                    <td>
+                        <input value="1" checked="checked" type="radio" name="sex"/>男
+                        <input value="0" style="margin-left: 30px" type="radio" name="sex"/>女
+                    </td>
+                </tr>
+                <tr>
+                    <td>手机号:</td>
+                    <td><input type="text" id="phone"/></td>
+                </tr>
+                <tr>
+                    <td>邮箱:</td>
+                    <td><input type="text" id="email"></td>
+                </tr>
+                <tr>
+                    <td>个人简介:</td>
+                    <td><input type="text" id="commend"></td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <input id="hold" type="button" value="保存"/>
+                        <input id="off" type="button" value="取消"/>
+                    </td>
+                </tr>
+            </table>
+        </form>
     </div>
 </div>
 </body>
-<script>
-    <%String mess=request.getParameter("message");%>
-    <%if (mess!=null && !"".equals(mess)){%>
-        alert("<%=mess%>")
-        <%}%>
-</script>//刷新式响应代码
 </html>

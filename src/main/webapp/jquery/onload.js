@@ -99,7 +99,7 @@ $(function () {
                         $("#pass").animate({
                             "width": "175px"
                         },"fast",function() {
-                            $(".btn").fadeIn(1000)
+                            $("#OT .btn").fadeIn(1000)
                         })
                     },500)
                 })
