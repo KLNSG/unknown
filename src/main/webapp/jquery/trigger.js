@@ -131,20 +131,33 @@ $(function () {
         }
     }
 
-    $("#userPage").click(function () {
-
-    })
     //用户资料注册
     $("#hold").click(function () {
+       if ($(this).val()=="注册"){
         var commend = $("[id=commend]").val();
         var email = $("[id=email]").val();
         var phone = $("[id=phone]").val();
         if (commend == "" || email == "" || phone == "") {
             alert("不能为空哦")
-        }else {
+        }
+        else {
             ajax_InfoUser();
         }
-    });
+    }else {
+           var commend = $("[id=commend]").val();
+           var email = $("[id=email]").val();
+           var phone = $("[id=phone]").val();
+           if (commend == "" || email == "" || phone == "") {
+               alert("不能为空哦")
+           }
+           else {
+               ajax_InfoUpdate();
+           }
+    }
+
+    }
+       );
+
     function ajax_InfoUser() {
            $.ajax({
                url:"/info?opt=add",
@@ -169,8 +182,9 @@ $(function () {
             }
         }
     }
-    //用户返回取消
-    $("#off").click(function () {
-
-    })
+ function ajax_InfoUpdate() {
+     $.ajax({
+         url:"/info?opt=",
+     })
+}
 })
