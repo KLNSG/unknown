@@ -20,18 +20,19 @@ public class UserInfoServlet extends HttpServlet {
     UserInfoService service=new UserInfoServiceImpl();
 
     private void printMessage(HttpServletResponse response, Message message) {
-       PrintWriter writer=null;
+        PrintWriter writer = null;
         try {
-           response.getWriter();
+            writer = response.getWriter();
         } catch (IOException e) {
             e.printStackTrace();
         }
-        String str=JSON.toJSONString(message);
+        String str = JSON.toJSONString(message);
         writer.write(str);
         writer.flush();
         writer.close();
     }
 
+    @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         request.setCharacterEncoding("utf-8");
         response.setCharacterEncoding("utf-8");
@@ -72,6 +73,7 @@ public class UserInfoServlet extends HttpServlet {
         Message message = service.update(userInfo);
         printMessage(response,message);
     }
+    @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
       doPost(request,response);
     }
