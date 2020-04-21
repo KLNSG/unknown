@@ -18,13 +18,12 @@
         <div id="navigationBar">
             <ul class="homeUl" id="homeui">
                 <li><a class="home" id="Login"><span>首页</span></a></li>
-                <li><a class="home"><span>论坛</span></a></li>
+                <li><a class="home" id="luntan"><span>论坛</span></a></li>
                 <li><a class="home"><span>热点</span></a></li>
                 <li><a class="home"><span>消息</span></a></li>
-                <li><a class="home"><span>我的空间</span></a></li>
+                <li><a id="kongjian" class="home"><span>我的空间</span></a></li>
             </ul>
         </div>
-    </div>
     <div class="deng" id="loginpage">
         <form id="uploadForm" method="post" enctype="multipart/form-data">
            <table id="OT">
@@ -56,9 +55,10 @@
         </form>
         <div id="userPage">
         <img src="" class="img" alt="用户头像"/>
-            <span></span>
-        </div>
+        <span></span>
     </div>
+    </div>
+
     <div class="user_info ">
         <form>
             <table id="info">
@@ -94,5 +94,24 @@
         </form>
     </div>
 </div>
+    <div class="search">
+    <div class="input">
+        <input type="text" placeholder="请输入要搜索的内容" autocomplete="off">
+    </div>
+    <div class="sousuo"><img src="image/search.png"></div>
+</div>
+</div>
+
+<div class="forum" id="tribune">
+    <div id="hoad">
+        <ul class="mold" id="cut">
+            <li><a class="home"><span>新闻</span></a></li>
+            <li><a class="home"><span>财经</span></a></li>
+            <li><a class="home"><span>科技</span></a></li>
+            <li><a class="home"><span>娱乐</span></a></li>
+            <li><a class="home"><span>体育</span></a></li>
+        </ul>
+</div>
+
 </body>
 </html>

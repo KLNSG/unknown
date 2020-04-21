@@ -38,7 +38,7 @@ $(function () {
             }
         }
 
-
+           //登陆后的动画
         function showImg() {
             $("#OT").hide(300, function () {
                 $("#OT").css("display", "none")
@@ -50,6 +50,10 @@ $(function () {
                 }, "slow", function () {
                     $(".img").attr("src", user.userPoto).css("display", "table-row")
                     $("#userPage span").text(user.userName)
+                    $("#kongjian").animate({height:"toggle"},20)
+                    $(".search").animate({width:"toggle"},10).css("display","block")
+                    /*  $("#userPage").animate({left: '+=500'}, 500)
+                    $("#userPage").animate({top: '+=500'}, 500)*/
                 })
             })
         }
@@ -220,5 +224,13 @@ $(function () {
             }
         }
     }
-
+        //取消个人资料框
+        $(".user_info").click(function () {
+        $(".user_info").animate({height:"toggle"})
+    })
+        //点击论坛
+      $("#luntan").click(function () {
+       $(".mold").animate({height:"toggle"}).css("display","block")
+       $(".search").css("display","none")
+      })
 });
