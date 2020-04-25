@@ -47,4 +47,7 @@ public class UserInfoDaoImpl extends BaseDao implements UserInfoDao {
         }
         return info;
     }
+
+
+
 }

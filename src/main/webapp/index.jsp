@@ -24,94 +24,89 @@
                 <li><a id="kongjian" class="home"><span>我的空间</span></a></li>
             </ul>
         </div>
-    <div class="deng" id="loginpage">
-        <form id="uploadForm" method="post" enctype="multipart/form-data">
-           <table id="OT">
-            <tr>
-                <td><h1></h1></td>
-                <td><input name="name" id="name" class="inputBox" type="text"></td>
-            </tr>
-            <tr>
-                <td><h1></h1></td>
-                <td><input name="pass" id="pass" class="inputBox" type="password"></td>
-            </tr>
-            <tr class="none">
-                <td><h2>确认密码:</h2></td>
-                <td><input name="repass" id="repass" class="inputBox" type="password"></td>
-            </tr>
-            <tr class="none">
-                <td><h2>选择头像:</h2></td>
-                <td><input id="photo" name="photo" style="font-size: 20px" class="inputBox" type="file"></td>
-            </tr>
-            <tr>
-                <td>
-                    <input id="denglu" class="btn" type="button" value="登录">
-                </td>
-                <td>
-                    <input id="zhuce" class="btn" type="button" value="注册">
-                </td>
-            </tr>
-        </table>
-        </form>
-        <div id="userPage">
-        <img src="" class="img" alt="用户头像"/>
-        <span></span>
-    </div>
-    </div>
+        <div class="deng" id="loginpage">
+            <form id="uploadForm" method="post" enctype="multipart/form-data">
+                <table id="OT">
+                    <tr>
+                        <td><h1></h1></td>
+                        <td><input name="name" id="name" class="inputBox" type="text"></td>
+                    </tr>
+                    <tr>
+                        <td><h1></h1></td>
+                        <td><input name="pass" id="pass" class="inputBox" type="password"></td>
+                    </tr>
+                    <tr class="none">
+                        <td><h2>确认密码:</h2></td>
+                        <td><input name="repass" id="repass" class="inputBox" type="password"></td>
+                    </tr>
+                    <tr class="none">
+                        <td><h2>选择头像:</h2></td>
+                        <td><input id="photo" name="photo" style="font-size: 20px" class="inputBox" type="file"></td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input id="denglu" class="btn" type="button" value="登录">
+                        </td>
+                        <td>
+                            <input id="zhuce" class="btn" type="button" value="注册">
+                        </td>
+                    </tr>
+                </table>
+            </form>
+            <div id="userPage">
+                <img src="" class="img" alt="用户头像"/>
+                <span></span>
+            </div>
+        </div>
 
-    <div class="user_info ">
-        <form>
-            <table id="info">
-                <tr>
-                    <td colspan="3"><h2>用户资料</h2></td>
-                </tr>
-                <tr>
-                    <td>性别:</td>
-                    <td>
-                        <input value="1" checked="checked" type="radio" name="sex"/>男
-                        <input value="0" style="margin-left: 30px" type="radio" name="sex"/>女
-                    </td>
-                </tr>
-                <tr>
-                    <td>手机号:</td>
-                    <td><input type="text"  id="phone"/></td>
-                </tr>
-                <tr>
-                    <td>邮箱:</td>
-                    <td><input  type="text" id="email"></td>
-                </tr>
-                <tr>
-                    <td>个人简介:</td>
-                    <td><input type="text" id="commend"></td>
-                </tr>
-                <tr>
-                    <td colspan="2">
-                        <input id="hold" type="button" value="保存"/>
-                        <input id="off" type="button" value="取消"/>
-                    </td>
-                </tr>
-            </table>
-        </form>
+        <div class="user_info ">
+            <form>
+                <table id="info">
+                    <tr>
+                        <td colspan="3"><h2>用户资料</h2></td>
+                    </tr>
+                    <tr>
+                        <td>性别:</td>
+                        <td>
+                            <input value="1" checked="checked" type="radio" name="sex"/>男
+                            <input value="0" style="margin-left: 30px" type="radio" name="sex"/>女
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>手机号:</td>
+                        <td><input type="text" id="phone"/></td>
+                    </tr>
+                    <tr>
+                        <td>邮箱:</td>
+                        <td><input type="text" id="email"></td>
+                    </tr>
+                    <tr>
+                        <td>个人简介:</td>
+                        <td><input type="text" id="commend"></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
+                            <input id="hold" type="button" value="保存"/>
+                            <input id="off" type="button" value="取消"/>
+                        </td>
+                    </tr>
+                </table>
+            </form>
+        </div>
     </div>
-</div>
-    <div class="search">
-    <div class="input">
-        <input type="text" placeholder="请输入要搜索的内容" autocomplete="off">
-    </div>
-    <div class="sousuo"><img src="image/search.png"></div>
-</div>
-</div>
+    <%--<div class="forum" id="tribune">
+        <div id="hoad">
+            <ul class="mold" id="cut">
+                <li><a class="home" id="news"><span>新闻</span></a></li>
+                <li><a class="home" id="Finance"><span>财经</span></a></li>
+                <li><a class="home" id="technology"><span>科技</span></a></li>
+                <li><a class="home" id="entertainment"><span>娱乐</span></a></li>
+                <li><a class="home" id="sports"><span>体育</span></a></li>
 
-<div class="forum" id="tribune">
-    <div id="hoad">
-        <ul class="mold" id="cut">
-            <li><a class="home"><span>新闻</span></a></li>
-            <li><a class="home"><span>财经</span></a></li>
-            <li><a class="home"><span>科技</span></a></li>
-            <li><a class="home"><span>娱乐</span></a></li>
-            <li><a class="home"><span>体育</span></a></li>
-        </ul>
-</div>
+            </ul>
+        </div>
+    </div>--%>
+
 
 </body>
 </html>

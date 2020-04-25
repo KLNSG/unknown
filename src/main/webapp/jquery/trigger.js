@@ -50,10 +50,7 @@ $(function () {
                 }, "slow", function () {
                     $(".img").attr("src", user.userPoto).css("display", "table-row")
                     $("#userPage span").text(user.userName)
-                    $("#kongjian").animate({height:"toggle"},20)
-                    $(".search").animate({width:"toggle"},10).css("display","block")
-                    /*  $("#userPage").animate({left: '+=500'}, 500)
-                    $("#userPage").animate({top: '+=500'}, 500)*/
+                    /*$("#kongjian").animate({height:"toggle"},20)*/
                 })
             })
         }
@@ -134,49 +131,49 @@ $(function () {
             }
         }
 
-        //点击头像出css
-        $("#userPage").click(function () {
-           $.ajax({
-               url:"/info?opt=getUserInfo",
-               type:"POST",
-               data:{
-                   userId:user.userId
-               },
-               dataType:"JSON",
-               success:a
-           })
-            function a(data) {
-               $(".user_info").css("display","inline")
-               if (data.code==1){
-                   $("#hold").attr("value","编辑")
-                   if (data.data.infoGender==1){
-                       $("input[name=sex]").eq(0).attr("checked","checked")
-                   }else {
-                       $("input[name=sex]").eq(1).attr("checked","checked")
-                   }
-                   $("#phone").attr("placeholder",data.data.infoPhone)
-                   $("#email").attr("placeholder",data.data.infoEmail)
-                   $("#commend").attr("placeholder",data.data.infoComment)
-               }else if(data.code=-1){
-                   $("#hold").attr("value","保存")
-               }
+       //点击头像出css
+    $("#userPage").click(function () {
+        $.ajax({
+            url:"/info?opt=getUserInfo",
+            type:"POST",
+            data:{
+                userId:user.userId
+            },
+            dataType:"JSON",
+            success:a
+        })
+        function a(data) {
+            $(".user_info").css("display","inline")
+            if (data.code==1){
+                $("#hold").attr("value","编辑")
+                if (data.data.infoGender==1){
+                    $("input[name=sex]").eq(0).attr("checked","checked")
+                }else {
+                    $("input[name=sex]").eq(1).attr("checked","checked")
+                }
+                $("#phone").attr("placeholder",data.data.infoPhone)
+                $("#email").attr("placeholder",data.data.infoEmail)
+                $("#commend").attr("placeholder",data.data.infoComment)
+            }else if(data.code=-1){
+                $("#hold").attr("value","保存")
             }
-        });
-        //用户资料注册
-        $("#hold").click(function () {
-            var commend = $("[id=commend]").val();
-            var email = $("[id=email]").val();
-            var phone = $("[id=phone]").val();
-            if (commend == "" || email == "" || phone == "") {
-                alert("不能为空哦")
-            }
-            if ($(this).val() == "保存") {
-                ajax_InfoUser();
-            } else if ($(this).val() == "编辑"){
-                ajax_InfoUpdate();
-            }
-        });
-        function ajax_InfoUser() {
+        }
+    });
+    //用户资料注册
+    $("#hold").click(function () {
+        var commend = $("[id=commend]").val();
+        var email = $("[id=email]").val();
+        var phone = $("[id=phone]").val();
+        if (commend == "" || email == "" || phone == "") {
+            alert("不能为空哦")
+        }
+        if ($(this).val() == "保存") {
+            ajax_InfoUser();
+        } else if ($(this).val() == "编辑"){
+            ajax_InfoUpdate();
+        }
+    });
+    function ajax_InfoUser() {
         $.ajax({
             url: "/info?opt=add",
             type: 'POST',
@@ -201,8 +198,8 @@ $(function () {
             }
         }
     }
-        //修改代码
-        function ajax_InfoUpdate() {
+    //修改代码
+    function ajax_InfoUpdate() {
         $.ajax({
             url: "/info?opt=update",
             data:{
@@ -211,7 +208,7 @@ $(function () {
                 infoEmail: $("#email").val(),
                 infoComment: $("#commend").val(),
                 userId:user.userId,
-                 },
+            },
             dataType:"JSON",
             type: 'POST',
             success:c
@@ -224,13 +221,13 @@ $(function () {
             }
         }
     }
-        //取消个人资料框
-        $(".user_info").click(function () {
+    //取消个人资料框
+    $(".user_info").click(function () {
         $(".user_info").animate({height:"toggle"})
     })
-        //点击论坛
-      $("#luntan").click(function () {
-       $(".mold").animate({height:"toggle"}).css("display","block")
-       $(".search").css("display","none")
-      })
+
+    $(".home").click(function () {
+
+    })
+
 });

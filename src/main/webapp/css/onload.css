@@ -155,9 +155,9 @@ body{
     border-radius: 4px 0 0 4px;
 }
 .sousuo{
-    width: 89px;
-    height: 64px;
-    background-color: #08f;
+    height: 61px;
+    width: 100px;
+    background: black 1px scroll;
     background-position: center;
     background-repeat: no-repeat;
     border-radius: 0 4px 4px 0;
@@ -174,3 +174,59 @@ body{
     position: relative;
     top: 58px;
 }
+.diceng{
+    display: none;
+    position: absolute;
+    top: 250px;
+    left: 100px;
+}
+.wenzi{
+    width: 1850px;
+}
+.wenzi a{
+    padding: 10px;
+    margin: 10px;
+    text-decoration:none;
+    text-align: center;
+    color: burlywood;
+    font-size: 30px;
+    font-family: "Adobe 楷体 Std R";
+    letter-spacing: 15px;
+    line-height: 35px;
+    position: relative;
+    left: -35px;
+    top: -50px;
+}
+.wenzi a:hover{
+    color:moccasin;
+    font-size: 32px;
+    font-weight: bold;
+    top: -20px;
+}
+.caidi{
+    display: none;
+    position: absolute;
+    top: 250px;
+    left: 100px;
+}
+.kedi{
+    display: none;
+    position: absolute;
+    top: 250px;
+    left: 100px;
+}
+.yudi{
+    display: none;
+    position: absolute;
+    top: 250px;
+    left: 100px;
+}
+.tidi{
+    display: none;
+    position: absolute;
+    top: 250px;
+    left: 100px;
+}
+
+
+

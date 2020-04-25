@@ -12,4 +12,5 @@ public interface UserInfoDao {
      int update(UserInfo info);
 
      UserInfo getUserInfoByUserId(Integer userId);
+
 }

@@ -36,6 +36,7 @@ $(function () {
                                             })
                                         },1000)
                                         navigationBar()
+                                        navigationBar1
                                     })
                                     setTimeout(function () {
                                         $("#up").remove();
@@ -84,8 +85,9 @@ $(function () {
             if (index>=$home.length){
                 clearInterval(interval)
             }
-        },500);
+        },300);
     }
+
     function loginpage() {
         $("#loginpage").fadeIn(1000,function() {
             var $h1 = $("h1");
